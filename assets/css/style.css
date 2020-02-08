@@ -1,3 +1,15 @@
+/* Page background color */
 html{
     background-color: #272b2e;
+}
+/* Customize Jumbotron header */
+.jumbotron{
+    background-color: #272b2e;
+    color: #FF4301;
+}
+/* Align items to center */
+.container-fluid{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
