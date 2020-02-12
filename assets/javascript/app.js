@@ -1,5 +1,5 @@
 // Add Buttons
-var topicsArr = [];
+var topicsArr = ["arts", "automobiles", "books", "business", "fashion", "food", "health", "home", "insider", "magazine", "movies", "nyregion", "obituaries", "opinion", "politics", "realestate", "science", "sports", "sundayreview", "technology", "theater", "t-magazine", "travel", "upshot", "us", "world"];
 var abstractArr = [];
 var titleArr = [];
 var linkArr = [];
@@ -11,6 +11,7 @@ function showButtons() {
         var button = $("<button>");
         button.attr("data-element", topicsArr[i]);
         button.attr("id", "topic-button");
+        button.attr("class", "btn btn-outline-primary")
         button.text(topicsArr[i]);
         $("#button-bar").append(button);
     };
@@ -64,3 +65,5 @@ $.ajax({
         console.log(response.data[i].images.downsized_large.url);
     }
 });
+
+showButtons();
