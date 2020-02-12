@@ -18,25 +18,49 @@ function showButtons() {
 };
 
 // query for NYT API
-var apiKey = "UA8uSAgssGj8XdWmpw2aN3UOEEBviYiJ";
-var topic = "world";
-var queryNYT = "https://api.nytimes.com/svc/topstories/v2/" + topic + ".json?api-key=" + apiKey;
 
-$.ajax({
-    url: queryNYT,
-    method: "GET"
-}).then(function(response){
-    console.log(response);
+$(document).on("click", "#topic-button", function() {
+    var apiKey = "UA8uSAgssGj8XdWmpw2aN3UOEEBviYiJ";
+    var topic = $(this).attr("data-element");
+    var queryNYT = "https://api.nytimes.com/svc/topstories/v2/" + topic + ".json?api-key=" + apiKey;
 
-    for (const item in response.results) {
-        abstractArr.push(response.results[item].abstract);
-        titleArr.push(response.results[item].title);
-        linkArr.push(response.results[item].url);
-    }
+    console.log($(this).attr("data-element"));    
 
-    console.log(abstractArr, titleArr, linkArr);
-
+    $.ajax({
+        url: queryNYT,
+        method: "GET"
+    }).then(function(response){
+        abstractArr = [];
+        titleArr = [];
+        linkArr = [];
+        $("tbody tr").remove();
+    
+        for (const item in response.results) {
+            abstractArr.push(response.results[item].abstract);
+            titleArr.push(response.results[item].title);
+            linkArr.push(response.results[item].url);
+        }
+    
+        console.log(abstractArr, titleArr, linkArr);
+        addArticles(titleArr);
+    
+    });
 });
+
+// add Articles to DOM
+function addArticles(array) {
+    for (i = 0; i < array.length; i++) {
+        var tRow = $("<tr>");
+        var articleTd = $("<td>").text(array[i]);
+        var emotionTd = $("<td>");
+        var giphyTd = $("<td>");
+        
+        tRow.append(articleTd, emotionTd, giphyTd);
+        
+        $("tbody").append(tRow);
+    }
+}
+
 
 // query for MS Sentiment Analysis API
 $.ajax({
