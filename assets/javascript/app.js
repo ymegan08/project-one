@@ -1,6 +1,8 @@
 // Add Buttons
 var topicsArr = [];
 var abstractArr = [];
+var titleArr = [];
+var linkArr = [];
 //buttons appear on page load
 
 function showButtons() {
@@ -27,9 +29,11 @@ $.ajax({
 
     for (const item in response.results) {
         abstractArr.push(response.results[item].abstract);
+        titleArr.push(response.results[item].title);
+        linkArr.push(response.results[item].url);
     }
 
-    console.log(abstractArr);
+    console.log(abstractArr, titleArr, linkArr);
 
 });
 
@@ -44,15 +48,19 @@ $.ajax({
   type: "POST",
   // Request body
   data: "{body}",
-})
+});
 
 // Example queryURL for Giphy API
 var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9";
-
+var data = null;
 
 $.ajax({
     url: queryURL,
     method: "GET"
-}).then(function(response) {
+}).then(function (response) {
+    console.log("Here");
     console.log(response);
+    for (var i = 0; i < response.data.length; i++) {
+        console.log(response.data[i].images.downsized_large.url);
+    }
 });
