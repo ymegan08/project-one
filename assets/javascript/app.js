@@ -74,10 +74,15 @@ var settings = {
 		"content-type": "application/x-www-form-urlencoded"
 	},
 	"data": {
+        // Give this value of information from NYT API
 		"text": "enter text here!"
 	}
 }
-
+// Console logs response A.K.A sentiment analysis
+// Type response: negative, neutral, positive
+// score: how negative or positive the overall text analyzed is
+    // Below -0.05 is negative, above 0.05 is positive
+// ratio: combined total score of negative words compared to combined total score of positive words (-1 to 1)
 $.ajax(settings).done(function (response) {
 	console.log(response);
 });
