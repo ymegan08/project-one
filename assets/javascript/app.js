@@ -70,7 +70,7 @@ $(document).on("click", "#topic-button", function() {
 
                 //Example queryURL for Giphy API
                 var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=" + sentimentAnalysis;
-
+                settings.data.text = abstractArr[i];
                 var GiphyLink;
 
                 $.ajax({
@@ -82,9 +82,8 @@ $(document).on("click", "#topic-button", function() {
                     console.log(response.data[0].images.downsized_large.url);
                     // store image link to GiphyLink
                     GiphyLink = response.data[0].images.downsized_large.url;
-                    settings.data.text = abstractArr[i];
                     // have GIPHY shown on the columns
-                    addItems(abstractArr[i], sentimentAnalysis, GiphyLink);
+                    addItems(abstractArr, sentimentAnalysis, GiphyLink);
 
                 });
 
