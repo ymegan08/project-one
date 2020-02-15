@@ -63,7 +63,7 @@ $(document).on("click", "#topic-button", function() {
         }
 
         
-        settings.data.text = abstractArr[i];
+        settings.data.text = abstractArr[0];
         console.log(settings);
         
         $.ajax(settings).done(function(response) {
