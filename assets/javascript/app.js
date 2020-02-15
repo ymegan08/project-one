@@ -68,10 +68,11 @@ $(document).on("click", "#topic-button", function() {
         
         $.ajax(settings).done(function(response) {
             // Extract positive, neutral, negative string to add too emotion coloumn
-            var sentimentAnalysis = response.type;
+            var sentimentAnalysis = response.type
+            var keywords = response.keywords[0].word;
             console.log(response)
             // feed GIPHY API response.type string
-            var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=" + sentimentAnalysis;
+            var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=" + keywords;
             var GiphyLink;
 
             $.ajax({
