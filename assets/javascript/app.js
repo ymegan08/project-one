@@ -24,8 +24,6 @@ $(document).on("click", "#topic-button", function() {
     var topic = $(this).attr("data-element");
     var queryNYT = "https://api.nytimes.com/svc/topstories/v2/" + topic + ".json?api-key=" + apiKey;
 
-    console.log();    
-
     $.ajax({
         url: queryNYT,
         method: "GET"
@@ -64,15 +62,32 @@ $(document).on("click", "#topic-button", function() {
             }
         }
         // Call Twinword API for every string sent to it
-        for(var i = 0; i < abstractArr.length; i++){
-            settings.data.text = abstractArr[i];
+        for (var i = 0; i < 3; i++) {
             $.ajax(settings).done(function (response) {
                 // Extract positive, neutral, negative string to add too emotion coloumn
                 var sentimentAnalysis = response.type;
                 // feed GIPHY API response.type string
-                // have GIPHY shown on the columns
 
-                addItems(arr1, sentimentAnalysis, arr3)
+                //Example queryURL for Giphy API
+                var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=" + sentimentAnalysis;
+
+                var GiphyLink;
+
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                }).then(function (response) {
+                    console.log("Here");
+                    console.log(response);
+                    console.log(response.data[0].images.downsized_large.url);
+                    // store image link to GiphyLink
+                    GiphyLink = response.data[0].images.downsized_large.url;
+                    settings.data.text = abstractArr[i];
+                    // have GIPHY shown on the columns
+                    addItems(abstractArr[i], sentimentAnalysis, GiphyLink);
+
+                });
+
             });
         }
 
@@ -84,12 +99,12 @@ $(document).on("click", "#topic-button", function() {
 
 
 // add Articles to DOM
-// function addItems(NYTAbstract, SentimentAnalysis, GiphyLink) {
+function addItems(string, SentimentAnalysis, GiphyLink) {
     
     var tRow = $("<tr>");
-    var articleTd = $("<td>").text(array[i]);
+    var articleTd = $("<td>").text(string);
     var emotionTd = $("<td>").text(SentimentAnalysis);
-    // var giphyTd = $("<td>");
+    var giphyTd = $("<td>").text("<img src=" + GiphyLink + ">");
     
     tRow.append(articleTd, emotionTd, giphyTd);
     
@@ -97,21 +112,6 @@ $(document).on("click", "#topic-button", function() {
 }
 
 
-//Example queryURL for Giphy API
-var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9";
-var data = null;
 
-function getGiphy() = {}
-
-    $.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function (response) {
-    console.log("Here");
-    console.log(response);
-    for (var i = 0; i < response.data.length; i++) {
-        console.log(response.data[i].images.downsized_large.url);
-    }
-});
 
 showButtons();
