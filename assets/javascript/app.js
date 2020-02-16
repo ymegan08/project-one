@@ -1,5 +1,5 @@
 // Add Buttons
-var topicsArr = ["arts", "automobiles", "books", "business", "fashion", "food", "health", "home", "insider", "magazine", "movies", "nyregion", "obituaries", "opinion", "politics", "realestate", "science", "sports", "sundayreview", "technology", "theater", "t-magazine", "travel", "upshot", "us", "world"];
+var topicsArr = ["arts", "automobiles", "books", "business", "fashion", "food", "health", "home", "insider", "magazine", "movies", "nyregion", "obituaries", "opinion", "politics", "realestate", "science", "sports", "sunday review", "technology", "theater", "t-magazine", "travel", "upshot", "us", "world"];
 var abstractArr = [];
 var titleArr = [];
 var linkArr = [];
@@ -68,7 +68,7 @@ $(document).on("click", "#topic-button", function () {
             }
 
 
-         
+
             console.log(settings);
 
             $.ajax(settings).done(function (response) {
@@ -107,17 +107,20 @@ $(document).on("click", "#topic-button", function () {
 // add Articles to DOM
 function addItems(string, SentimentAnalysis, GiphyLink) {
 
-    var tRow = $("<tr>");
-    var articleTd = $("<td>").text(string);
-    var emotionTd = $("<td>").text(SentimentAnalysis);
-    var giphyTd = $("<td>").html("<img src=" + GiphyLink + ">");
+    // var tRow = $("<tr>");
+    var nyt = $("<div id='nytBox'>");
+    var sen = $("<div id='senBox'>");
+    var gifBox = $("<div id='gifBox'>");
 
-    tRow.append(articleTd, emotionTd, giphyTd);
 
-    $("tbody").append(tRow);
+    var articleTd = nyt.html(string);
+    var emotionTd = sen.html(SentimentAnalysis);
+    var giphyTd = gifBox.html("<img src=" + GiphyLink + ">");
+
+    $("#dynNYT").append(articleTd);
+    $("#senNYT").append(emotionTd);
+    $("#gifNYT").append(giphyTd);
 }
 
 
-
-
-showButtons();
+showButtons()

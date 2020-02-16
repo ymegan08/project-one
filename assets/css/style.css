@@ -1,15 +1,103 @@
-/* Page background color */
-html{
-    background-color: #272b2e;
+html,
+body {
+	background-color: black;
+	height: 100%;
 }
-/* Customize Jumbotron header */
-.jumbotron{
-    background-color: #272b2e;
-    color: #FF4301;
+
+#container {
+	background-color: black;
+	height: 100%;
 }
-/* Align items to center */
-.container-fluid{
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+
+.width-80 {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#resultDiv {
+	margin-left: 0 auto;
+ 
+    margin-top: 3%;
+}
+
+#buttonDiv {
+	display: block;
+	background-color: white;
+}
+
+#button-bar {
+	margin-top: 10%;
+}
+
+#topic-button {
+	display: block;
+	text-transform: uppercase;
+	background-color: none;
+	border: none;
+	color: black;
+	margin-left: 60px;
+	margin-bottom: -4px;
+}
+
+#title {
+	background-color: black;
+	color: white;
+	font-size: 22px;
+    height: 10px;
+margin-bottom: 9%;
+
+}
+
+#titleLogo {
+	width: 300px;
+}
+
+#category-box {
+	text-align: center;
+}
+
+#category {
+	background-color: black;
+	color: white;
+	border-top: 2px dotted #4e5050;
+	border-bottom: 2px solid #4e5050;
+	margin-top: 10px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-left: 0 auto;
+}
+
+#results-box {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#nytBox {
+	height: 300px;
+	background-color: white;
+	font-size: 1.2vw;
+	margin-bottom: 15px;
+	margin-top: 0 auto;
+}
+
+#senBox {
+	height: 300px;
+	background-color: white;
+	font-size: 25px;
+	margin-bottom: 15px;
+	margin-top: 0 auto;
+}
+
+#gifBox {
+	height: 300px;
+	background-color: white;
+	font-size: 25px;
+	margin-bottom: 15px;
+}
+
+#gifBox img {
+	height: 0 auto;
+	width: 200px;
+
+	object-fit: scale-down;
 }
