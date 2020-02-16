@@ -17,6 +17,10 @@ function showButtons() {
     };
 };
 
+   
+// $("#dynNYT").remove();
+// $("#senNYT").remove();
+// $("#gifNYT").remove();
 // query for NYT API
 
 $(document).on("click", "#topic-button", function () {
@@ -30,11 +34,15 @@ $(document).on("click", "#topic-button", function () {
     }).then(function (response) {
         console.log("NYT API worked");
 
+   
+        
 
         abstractArr = [];
         titleArr = [];
         linkArr = [];
         $("#welcome").remove();
+
+       
 
         for (const item in response.results) {
             abstractArr.push(response.results[item].abstract);
@@ -120,7 +128,8 @@ function addItems(string, SentimentAnalysis, GiphyLink) {
     $("#dynNYT").append(articleTd);
     $("#senNYT").append(emotionTd);
     $("#gifNYT").append(giphyTd);
+
 }
 
 
-showButtons()
+showButtons();
