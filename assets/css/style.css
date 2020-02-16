@@ -30,7 +30,8 @@ body {
 #buttonDiv {
 	display: block;
     background-color: white;
-    background-image: url("../images/1257302260.jpg");
+    background-image: url("../images/04.jpg");
+    background-size: 150%;
 }
 
 #button-bar {
@@ -39,12 +40,14 @@ body {
 
 #footer {
     margin-left: 72px;
-    background-color: none;
+    background-color: black;
+    color: white;
     height: 20px;
     position: sticky;
     top: 0;
     font-size: 10px;
     margin-top: 20px;
+    width: 105px;
 }
 
 #topic-button {
@@ -54,7 +57,7 @@ body {
 	border: none;
     color: black;
     font-family: 'Muli', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 12px;
 	margin-left: 60px;
 	margin-bottom: -4px;
@@ -135,5 +138,44 @@ body {
 	width: 200px;
     padding-top: 10%;
     object-fit: scale-down;
-    
+}
+
+button.launch {
+    background-color: #F9A300;
+    border: none;
+    height: 40px;
+    padding: 5px 15px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+button.launch:hover {
+    outline: none;
+    border: none;
+    background-color:;
+}
+
+button.change {
+
+    border: none;
+    height: 40px;
+    padding: 5px 15px;
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+button.change:hover {
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+button:active {
+    outline: none;
+    border: none;
 }
