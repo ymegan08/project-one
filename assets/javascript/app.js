@@ -1,5 +1,5 @@
 // Add Buttons
-var topicsArr = ["arts", "automobiles", "books", "business", "fashion", "food", "health", "home", "insider", "magazine", "movies", "nyregion", "obituaries", "opinion", "politics", "realestate", "science", "sports", "sunday review", "technology", "theater", "t-magazine", "travel", "upshot", "us", "world"];
+var topicsArr = ["arts", "automobiles", "books", "business", "fashion", "food", "health", "home", "insider", "magazine", "movies", "nyregion", "obituaries", "opinion", "politics", "real estate", "science", "sports", "sunday review", "technology", "theater", "t-magazine", "travel", "upshot", "us", "world"];
 var abstractArr = [];
 var titleArr = [];
 var linkArr = [];
@@ -34,7 +34,7 @@ $(document).on("click", "#topic-button", function () {
         abstractArr = [];
         titleArr = [];
         linkArr = [];
-        $("tbody tr").remove();
+        $("#welcome").remove();
 
         for (const item in response.results) {
             abstractArr.push(response.results[item].abstract);
