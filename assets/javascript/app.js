@@ -1,10 +1,10 @@
 // Add Buttons
-var topicsArr = ["arts", "automobiles", "books", "business", "fashion", "food", "health", "home", "insider", "magazine", "movies", "nyregion", "obituaries", "opinion", "politics", "realestate", "science", "sports", "sundayreview", "technology", "theater", "t-magazine", "travel", "upshot", "us", "world"];
+var topicsArr = ["arts", "automobiles", "books", "business", "fashion", "food", "health", "home", "insider", "magazine", "movies", "ny region", "obituaries", "opinion", "politics", "real estate", "science", "sports", "sunday review", "technology", "theater", "t-magazine", "travel", "upshot", "us", "world"];
 var abstractArr = [];
 var titleArr = [];
 var linkArr = [];
-//buttons appear on page load
 
+//buttons appear on page load
 function showButtons() {
     $("#button-bar").empty();
     for (var i = 0; i < topicsArr.length; i++) {
@@ -18,7 +18,6 @@ function showButtons() {
 };
 
 // query for NYT API
-
 $(document).on("click", "#topic-button", function () {
     var apiKey = "UA8uSAgssGj8XdWmpw2aN3UOEEBviYiJ";
     var topic = $(this).attr("data-element");
@@ -28,24 +27,21 @@ $(document).on("click", "#topic-button", function () {
         url: queryNYT,
         method: "GET"
     }).then(function (response) {
-        console.log("NYT API worked");
 
+        console.log("NYT API worked");
 
         abstractArr = [];
         titleArr = [];
         linkArr = [];
-        $("tbody tr").remove();
+
+        $("#welcome").remove();
 
         for (const item in response.results) {
             abstractArr.push(response.results[item].abstract);
-            // titleArr.push(response.results[item].title);
-            // linkArr.push(response.results[item].url);
         }
 
         nytArr = [];
-
         nytArr.push(abstractArr[0], abstractArr[1], abstractArr[2]);
-
         console.log(nytArr);
 
         // Call Twinword API for every string sent to it
@@ -67,8 +63,6 @@ $(document).on("click", "#topic-button", function () {
                 }
             }
 
-
-         
             console.log(settings);
 
             $.ajax(settings).done(function (response) {
@@ -76,6 +70,7 @@ $(document).on("click", "#topic-button", function () {
                 var sentimentAnalysis = response.type
                 var keywords = response.keywords[i].word;
                 console.log(response)
+
                 // feed GIPHY API response.type string
                 var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=" + keywords;
                 var GiphyLink;
@@ -91,33 +86,28 @@ $(document).on("click", "#topic-button", function () {
                     // have GIPHY shown on the columns
                     addItems(nytArr[i], sentimentAnalysis, GiphyLink);
                 });
-
             });
-
         }
-
-
-
     });
-
 });
-
-
 
 // add Articles to DOM
 function addItems(string, SentimentAnalysis, GiphyLink) {
 
-    var tRow = $("<tr>");
-    var articleTd = $("<td>").text(string);
-    var emotionTd = $("<td>").text(SentimentAnalysis);
-    var giphyTd = $("<td>").html("<img src=" + GiphyLink + ">");
+    var nyt = $("<div id='nytBox'>");
+    var sen = $("<div id='senBox'>");
+    var gifBox = $("<div id='gifBox'>");
 
-    tRow.append(articleTd, emotionTd, giphyTd);
 
-    $("tbody").append(tRow);
+    var articleTd = nyt.html(string);
+    var emotionTd = sen.html(SentimentAnalysis);
+    var giphyTd = gifBox.html("<img src=" + GiphyLink + ">");
+
+    $("#dynNYT").append(articleTd);
+    $("#senNYT").append(emotionTd);
+    $("#gifNYT").append(giphyTd);
 }
 
-
-
+//improvements to make: instead of appending to previous results on new clicks, remove previous
 
 showButtons();

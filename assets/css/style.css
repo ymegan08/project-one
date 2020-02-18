@@ -1,15 +1,176 @@
-/* Page background color */
-html{
-    background-color: #272b2e;
+html,
+body {
+	background-color: black;
+	height: 100%;
 }
-/* Customize Jumbotron header */
-.jumbotron{
-    background-color: #272b2e;
-    color: #FF4301;
+
+#container {
+	background-color: black;
+	height: 100%;
+	font-family: 'Muli', sans-serif;
 }
-/* Align items to center */
-.container-fluid{
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+
+.width-80 {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#welcome {
+	margin-top: 5%;
+	font-size: 17px;
+	color: #4e5050;
+	font-weight: 700;
+}
+
+#resultDiv {
+	margin-left: 0 auto;
+	margin-top: 3%;
+}
+
+#buttonDiv {
+	display: block;
+	background-color: white;
+	background-image: url("../images/04.jpg");
+	background-size: 150%;
+}
+
+#button-bar {
+	margin-top: 10%;
+}
+
+#footer {
+	margin-left: 72px;
+	background-color: black;
+	color: white;
+	height: 20px;
+	position: sticky;
+	top: 0;
+	font-size: 10px;
+	margin-top: 20px;
+	width: 105px;
+}
+
+#topic-button {
+	display: block;
+	text-transform: uppercase;
+	background-color: none;
+	border: none;
+	color: black;
+	font-family: 'Muli', sans-serif;
+	font-weight: 700;
+	font-size: 12px;
+	margin-left: 60px;
+	margin-bottom: -4px;
+}
+
+#title {
+	background-color: black;
+	color: #2a2a2a;
+	font-weight: 700;
+	font-size: 20px;
+	height: 10px;
+	margin-bottom: 9%;
+}
+
+#titleLogo {
+	width: 300px;
+}
+
+#category-box {
+	text-align: center;
+}
+
+#category {
+	background-color: black;
+	color: #4e5050;
+	font-weight: 900;
+	border-top: 2px dotted #4e5050;
+	border-bottom: 2px solid #4e5050;
+	margin-top: 10px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-left: 0 auto;
+}
+
+#results-box {
+	text-align: center;
+	font-size: 10px;
+	letter-spacing: -1px;
+	text-transform: uppercase;
+	font-weight: 800;
+	line-height: -30px;
+}
+
+#nytBox {
+	height: 300px;
+	background-color: #131313;
+	color: #909090;
+	font-size: 1.2vw;
+	margin-bottom: 15px;
+	margin-top: 0 auto;
+	padding-left: 8%;
+	padding-right: 8%;
+	padding-top: 5%;
+}
+
+#senBox {
+	height: 300px;
+	background-color: #131313;
+	color: #909090;
+	font-size: 1.2vw;
+	margin-bottom: 15px;
+	margin-top: 0 auto;
+	padding-left: 8%;
+	padding-right: 8%;
+	padding-top: 35%;
+}
+
+#gifBox {
+	height: 300px;
+	background-color: #131313;
+	font-size: 25px;
+	margin-bottom: 15px;
+}
+
+#gifBox img {
+	height: 0 auto;
+	width: 200px;
+	padding-top: 10%;
+	object-fit: scale-down;
+}
+
+@media screen and (max-width: 480px) {
+    #buttonDiv{
+        width: 100%;
+        height: auto;
+        background-color: #333;
+        border-bottom: 0.5px solid #333;
+     }
+    #buttonDiv{
+        display: inline;
+    }
+  }
+
+@media (min-width: 576px) {
+	.custom-class {
+		display: block;
+	}
+}
+
+@media (min-width: 768px) {
+	.custom-class {
+		display: block;
+	}
+}
+
+@media (min-width: 992px) {
+	.custom-class {
+		display: block;
+	}
+}
+
+@media (min-width: 1200px) {
+	.custom-class {
+		display: block;
+	}
 }
