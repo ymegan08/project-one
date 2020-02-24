@@ -8,6 +8,9 @@ Used:
 3) HTML
 4) jQuery
 5) ajax
+6) New York Times API
+7) GIPHY API
+8) Twinword Sentiment Analysis API
 
 Site: https://subtleasian.github.io/project-one/
 
