@@ -4,6 +4,4 @@ Extract top New York Times articles by subcategory, and return Sentiment Analysi
 
 Site: https://subtleasian.github.io/project-one/
 
-<video width="1430" height="877" controls>
-  <source src="nytanalysis.mov" type="video/mp4">
-</video>
+![til](./Desktop/ezgif.com-optimize.gif)
