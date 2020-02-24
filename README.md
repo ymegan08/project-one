@@ -4,4 +4,4 @@ Extract top New York Times articles by subcategory, and return Sentiment Analysi
 
 Site: https://subtleasian.github.io/project-one/
 
-![til](./Desktop/ezgif.com-optimize.gif)
+<a href="https://imgflip.com/gif/3q3irx"><img src="https://i.imgflip.com/3q3irx.gif" title="made at imgflip.com"/></a>
