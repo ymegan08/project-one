@@ -14,5 +14,4 @@ Used:
 
 Site: https://subtleasian.github.io/project-one/
 
-Demo:
-<a href="https://imgflip.com/gif/3q3irx"><img src="https://i.imgflip.com/3q3irx.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/3q3jjx"><img src="https://i.imgflip.com/3q3jjx.gif" title="made at imgflip.com"/></a>
